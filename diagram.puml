@@ -59,7 +59,6 @@ String optionName
 
 class User {
 UUID userId
-String login
 String lastName
 String firstName
 String password
