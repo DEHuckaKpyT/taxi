@@ -1,0 +1,97 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+OrderLog -> Order
+Order --> User
+Order --> Employee
+Employee --> Car
+OrderLog --> OrderState
+Car -> CarColor
+CarType <- Car
+Order -> Car
+Order <-> OrderOption
+OrderOption <-> Option
+Order <--> OrderCarType
+OrderCarType <-> CarType
+
+class OrderLog{
+UUID logId
+Order order
+LocalDateTime changeDateTime
+OrderState state
+}
+
+class Order{
+UUID orderId
+LocalDateTime createDateTime
+String points
+int price
+String comment
+int tip
+String otherNumber
+Employee employee
+User user
+Car usingCar
+}
+
+
+class OrderCarType{
+UUID orderCarTypeId
+Order order
+CarType type
+}
+
+class CarType{
+UUID typeId
+String typeName
+}
+
+class OrderOption{
+UUID orderOptionId
+Order order
+Option option
+}
+
+class Option{
+UUID optionId
+String optionName
+}
+
+class User {
+UUID userId
+String login
+String lastName
+String firstName
+String password
+String number
+String e-mail
+}
+
+class Employee{
+UUID employeeId
+String lastName
+String firstName
+String password
+String passport
+Car car
+}
+
+class Car{
+UUID carId
+String number
+String name
+CarType type;
+int CountOfPassengers;
+CarColor color
+}
+
+class CarColor{
+UUID colorId
+String colorName
+}
+
+class OrderState{
+UUID stateId
+String stateName
+}
+@enduml
