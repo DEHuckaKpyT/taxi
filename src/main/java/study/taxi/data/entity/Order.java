@@ -1,11 +1,17 @@
-package study.taxi.entity;
+package study.taxi.data.entity;
+
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "order")
 public class Order {
@@ -28,7 +34,7 @@ public class Order {
     String otherNumber;
 
     @ManyToOne
-    Employee employee;
+    Driver driver;
 
     @ManyToOne
     User user;
@@ -48,12 +54,12 @@ public class Order {
             inverseJoinColumns = @JoinColumn(name = "option_id"))
     Set<Option> options;
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setDriver(Driver driver) {
+        this.driver = driver;
     }
 
-    public Employee getEmployee() {
-        return employee;
+    public Driver getDriver() {
+        return driver;
     }
 
     public Car getUsingCar() {

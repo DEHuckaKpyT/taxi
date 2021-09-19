@@ -1,9 +1,16 @@
-package study.taxi.entity;
+package study.taxi.data.entity;
+
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class OrderLog {
 

@@ -1,18 +1,25 @@
-package study.taxi.entity;
+package study.taxi.data.entity;
+
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.UUID;
 
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-public class Employee {
+public class Driver {
 
     @Id
     @GeneratedValue
-    UUID employeeId;
+    UUID driverId;
 
-    String lastName;
+    String lastname;
 
-    String firstName;
+    String firstname;
 
     String password;
 
