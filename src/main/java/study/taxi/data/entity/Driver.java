@@ -27,8 +27,4 @@ public class Driver {
 
     @ManyToOne
     Car car;
-
-    public Car getCar() {
-        return car;
-    }
 }

@@ -1,4 +1,4 @@
-package study.taxi.api;
+package study.taxi.api.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;

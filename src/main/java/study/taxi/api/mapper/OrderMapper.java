@@ -14,8 +14,6 @@ public interface OrderMapper {
 
     OrderMapper INSTANCE = Mappers.getMapper(OrderMapper.class);
 
-    OrderDto toOrderDto(Order order);
-
     @Mappings({
             @Mapping(target = "orderId", source = "orderId"),
             @Mapping(target = "createDateTime", source = "createDateTime"),
@@ -30,5 +28,7 @@ public interface OrderMapper {
             @Mapping(target = "types", source = "types"),
             @Mapping(target = "options", source = "options")
     })
+    OrderDto toOrderDto(Order order);
+
     List<OrderDto> toOrderDto(List<Order> orders);
 }

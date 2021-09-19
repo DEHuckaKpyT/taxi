@@ -1,28 +1,21 @@
-package study.taxi.data.entity;
+package study.taxi.api.dto;
 
 import lombok.*;
+import study.taxi.data.entity.Order;
+import study.taxi.data.entity.OrderState;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Getter
 @Setter
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-@Entity
-public class OrderLog {
+@NoArgsConstructor
+public class OrderLogDto {
 
-    @Id
-    @GeneratedValue
     UUID logId;
-
-    @ManyToOne
     Order order;
-
     LocalDateTime changeDateTime;
-
-    @ManyToOne
     OrderState state;
 }

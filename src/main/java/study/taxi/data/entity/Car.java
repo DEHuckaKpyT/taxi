@@ -31,12 +31,4 @@ public class Car {
 
     @ManyToOne
     CarColor color;
-
-    public CarColor getColor() {
-        return color;
-    }
-
-    public CarType getType() {
-        return type;
-    }
 }

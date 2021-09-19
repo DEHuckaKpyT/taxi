@@ -53,20 +53,4 @@ public class Order {
             joinColumns = @JoinColumn(name = "order_id"),
             inverseJoinColumns = @JoinColumn(name = "option_id"))
     Set<Option> options;
-
-    public void setDriver(Driver driver) {
-        this.driver = driver;
-    }
-
-    public Driver getDriver() {
-        return driver;
-    }
-
-    public Car getUsingCar() {
-        return usingCar;
-    }
-
-    public User getUser() {
-        return user;
-    }
 }
