@@ -27,7 +27,7 @@ public class Car {
     @ManyToOne
     CarType type;
 
-    int CountOfPassengers;
+    int countOfPassengers;
 
     @ManyToOne
     CarColor color;

@@ -1,7 +1,7 @@
 package study.taxi.api.dto;
 
 import lombok.*;
-import study.taxi.data.entity.*;
+import study.taxi.data.entity.User;
 
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -21,9 +21,9 @@ public class OrderDto {
     String comment;
     int tip;
     String otherNumber;
-    Driver driver;
+    DriverDto driver;
     User user;
-    Car usingCar;
-    Set<CarType> types;
-    Set<Option> options;
+    CarDto usingCar;
+    Set<CarTypeDto> types;
+    Set<OptionDto> options;
 }

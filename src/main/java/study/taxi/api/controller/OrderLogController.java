@@ -18,7 +18,7 @@ public class OrderLogController {
     private final OrderLogService orderLogService;
 
     @GetMapping("list")
-    List<OrderLogDto> getAll(){
+    List<OrderLogDto> getAll() {
         return OrderLogMapper.INSTANCE.toOrderLogDto(orderLogService.getAll());
     }
 }
