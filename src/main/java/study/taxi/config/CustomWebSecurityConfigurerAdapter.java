@@ -24,12 +24,12 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
-//                .authorizeRequests().anyRequest().permitAll()
-                .authorizeRequests().antMatchers("/js/**", "/css/**", "/images/**").permitAll()
-                .and().authorizeRequests().antMatchers("/login").permitAll()
-                .and().authorizeRequests().anyRequest().authenticated()
-                .and().httpBasic().authenticationEntryPoint(authenticationEntryPoint)
-                .and().formLogin().loginPage("/login")
+                .authorizeRequests().anyRequest().permitAll()
+//                .authorizeRequests().antMatchers("/js/**", "/css/**", "/images/**").permitAll()
+//                .and().authorizeRequests().antMatchers("/login").permitAll()
+//                .and().authorizeRequests().anyRequest().authenticated()
+//                .and().httpBasic().authenticationEntryPoint(authenticationEntryPoint)
+//                .and().formLogin().loginPage("/login")
                 .and().sessionManagement().disable();
     }
 

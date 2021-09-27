@@ -3,16 +3,33 @@
     border: 1px solid #000000;
     box-sizing: border-box;
     border-radius: 195px;
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
 }
 
-#button-log-in {
+.button:hover {
+    background: #c9117c;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 195px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+}
+
+#button-login {
     position: absolute;
     width: 174px;
     height: 56px;
-    /* left: 910px; */
     top: 599px;
+}
+
+#button-login-registration {
+    position: absolute;
+    width: 250px;
+    height: 56px;
+    top: 650px;
 }

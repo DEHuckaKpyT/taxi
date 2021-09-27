@@ -9,8 +9,8 @@
 
 #text-registration {
     position: absolute;
-    width: 232px;
-    height: 238px;
+    width: auto;
+    height: auto;
     top: 665px;
     text-decoration-line: underline;
     color: #0B5CF8;
