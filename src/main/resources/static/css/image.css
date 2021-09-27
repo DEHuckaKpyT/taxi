@@ -1,0 +1,32 @@
+img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: auto;
+    /* to keep proportions */
+    height: auto;
+    /* to keep proportions */
+    max-width: 100%;
+    /* not to stand out from div */
+    max-height: 100%;
+    /* not to stand out from div */
+}
+
+#image-bottom {
+    margin: auto auto 0;
+    /* position to bottom and center */
+}
+
+#image-top {
+    margin: auto auto 100;
+}
+
+#image-taxi-car {
+    top: 10%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+}

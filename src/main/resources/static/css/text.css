@@ -1,0 +1,24 @@
+.text {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+}
+
+#text-registration {
+    position: absolute;
+    width: 232px;
+    height: 238px;
+    top: 665px;
+    text-decoration-line: underline;
+    color: #0B5CF8;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#text-enter {
+    position: absolute;
+    font-size: 34px;
+    top: 300px;
+}

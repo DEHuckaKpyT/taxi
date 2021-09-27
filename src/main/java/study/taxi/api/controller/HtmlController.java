@@ -2,14 +2,18 @@ package study.taxi.api.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletResponse;
 
 @Controller
 public class HtmlController {
 
-    @GetMapping("/test")
-    public String page(){
-        return "ind";
+    @GetMapping("/{page}")
+    public String page(@PathVariable String page){
+        return page;
     }
+
 }

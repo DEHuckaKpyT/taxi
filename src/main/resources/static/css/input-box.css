@@ -1,0 +1,28 @@
+.input-box {
+    background: #FBF3F3;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 42px;
+    width: 348px;
+    height: 43px;
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+}
+
+#input-box-lastname {
+    position: absolute;
+    top: 401px;
+}
+
+#input-box-firstname {
+    position: absolute;
+    top: 467px;
+}
+
+#input-box-password {
+    position: absolute;
+    top: 533px;
+}
