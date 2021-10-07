@@ -1,18 +1,40 @@
 function myFunction() {
+
+
+
+ fetch("http://localhost:5433/login", {
+        credentials: 'include',
+        method: 'POST',
+        headers: {
+            "Accept": "*/*",
+            "Accept-Language": "en-US,en;q=0.5",
+            "content-type": "application/x-www-form-urlencoded"
+        },
+        body: new URLSearchParams({
+            'username': 'fn;ln',
+            'password': 'pass',
+        }),
+        mode: 'cors',
+    });
+
+
+
+
+
     // 1. Создаём новый XMLHttpRequest-объект
-    let xhr = new XMLHttpRequest();
+//    let xhr = new XMLHttpRequest();
 
     // 2. Настраиваем его: GET-запрос по URL /article/.../load
     // xhr.open('GET', 'http://google.com');
-    xhr.open('GET', '/test');
+//    xhr.open('GET', '/test');
     // xhr.open('GET', 'http://127.0.0.1:3002/test.html');
     // xhr.setRequestHeader('Authorization', 'Basic Zm47bG47cGFzcw==')
     // xhr.responseType = "document";
 
     // 3. Отсылаем запрос
-    xhr.send();
+//    xhr.send();
     // window.location = "http://127.0.0.1:5433/test";
-    window.open("/test");
+//    window.open("/test");
     // window.location.href = xhr.responseText;
 
     // 4. Этот код сработает после того, как мы получим ответ сервера

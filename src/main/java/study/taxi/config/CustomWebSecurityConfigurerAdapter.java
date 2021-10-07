@@ -11,26 +11,30 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
-public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
+public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
 
     private final MyUserDetailsService myUserDetailsService;
     private final MyBasicAuthenticationEntryPoint authenticationEntryPoint;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .csrf().disable()
-                .authorizeRequests().anyRequest().permitAll()
-//                .authorizeRequests().antMatchers("/js/**", "/css/**", "/images/**").permitAll()
-//                .and().authorizeRequests().antMatchers("/login").permitAll()
-//                .and().authorizeRequests().anyRequest().authenticated()
-//                .and().httpBasic().authenticationEntryPoint(authenticationEntryPoint)
-//                .and().formLogin().loginPage("/login")
-                .and().sessionManagement().disable();
+        http.csrf().disable()
+            .cors().and()
+//                .authorizeRequests().anyRequest().permitAll().and()
+            .authorizeRequests().antMatchers("/js/**", "/css/**", "/images/**", "/ico/**").permitAll().and()
+            .authorizeRequests().antMatchers("/login", "/registration").permitAll().and()
+            .authorizeRequests().anyRequest().authenticated().and()
+            .httpBasic().authenticationEntryPoint(authenticationEntryPoint).and()
+            .formLogin().loginPage("/login").failureUrl("/login?error").defaultSuccessUrl("/index", true).and()
+            .httpBasic().and()
+            .exceptionHandling().and()
+            .sessionManagement().disable();
     }
 
     @Bean
@@ -47,5 +51,14 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
     @Override
     protected UserDetailsService userDetailsService() {
         return myUserDetailsService;
+    }
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+//                .allowedOrigins("http://localhost:8080")
+                .allowedOrigins("*")
+                .allowCredentials(false).maxAge(3600)
+                .allowedMethods("GET", "POST", "OPTIONS");
     }
 }

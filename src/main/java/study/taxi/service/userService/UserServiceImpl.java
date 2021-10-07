@@ -24,4 +24,10 @@ public class UserServiceImpl implements UserService {
         String[] firstAndLast = firstnameLastname.split(";");
         return userRepository.findByFirstnameAndLastname(firstAndLast[0], firstAndLast[1]);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public User getUserByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
 }

@@ -20,7 +20,7 @@ public class MyUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        study.taxi.data.entity.User user = userService.getUserByFirstnameLastname(username);
+        study.taxi.data.entity.User user = userService.getUserByUsername(username);
 
         if (user == null) {
             throw new UsernameNotFoundException("User not found");

@@ -31,6 +31,13 @@ public class NeedRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
+//        User user = User.builder()
+//                        .email("qwe")
+//                        .firstname("fn")
+//                        .lastname("ln")
+//                        .password(new BCryptPasswordEncoder().encode("pass"))
+//                        .build();
+//        userRepository.save(user);
 //        User user = userRepository.findById(UUID.fromString("3564eed3-807b-4763-b941-c82467a7cd45")).orElse(null);
 //        Car car = carRepository.findById(UUID.fromString("649bfa0b-1b6b-4553-a04b-1fe8f43056cc")).orElse(null);
 //        Driver driver = driverRepository.findById(UUID.fromString("c2f3ab62-7984-47ab-b983-9eefca7239f6")).orElse(null);

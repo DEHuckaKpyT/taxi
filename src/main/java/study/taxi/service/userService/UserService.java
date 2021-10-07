@@ -7,4 +7,6 @@ public interface UserService {
     User create(User user);
 
     User getUserByFirstnameLastname(String firstnameLastname);
+
+    User getUserByUsername(String username);
 }

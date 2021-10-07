@@ -19,6 +19,8 @@ public class User {
     @GeneratedValue
     UUID userId;
 
+    String username;
+
     String lastname;
 
     String firstname;
