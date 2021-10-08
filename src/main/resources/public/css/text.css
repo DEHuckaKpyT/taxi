@@ -10,7 +10,7 @@
 #text-registration {
     position: absolute;
     width: auto;
-    height: auto;
+    height: 150px;
     top: 665px;
     text-decoration-line: underline;
     color: #0B5CF8;
@@ -20,5 +20,11 @@
 #text-enter {
     position: absolute;
     font-size: 34px;
-    top: 300px;
+    top: 325px;
+}
+#text-error-login-password{
+    position: absolute;
+    font-size: 14px;
+    top: 400px;
+    color:crimson;
 }

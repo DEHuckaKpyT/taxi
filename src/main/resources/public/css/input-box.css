@@ -13,19 +13,14 @@
     outline: none;
 }
 
-#input-box-lastname-login {
+#input-box-login-login {
     position: absolute;
-    top: 401px;
-}
-
-#input-box-firstname-login {
-    position: absolute;
-    top: 467px;
+    top: 425px;
 }
 
 #input-box-password-login {
     position: absolute;
-    top: 533px;
+    top: 500px;
 }
 
 #input-box-lastname-registration {
@@ -38,7 +33,7 @@
     top: 450px;
 }
 
-#input-box-password-registration {
+#input-box-number-registration {
     position: absolute;
     top: 500px;
 }
@@ -47,8 +42,12 @@
     position: absolute;
     top: 550px;
 }
-
-#input-box-number-registration {
+#input-box-login-registration{
     position: absolute;
     top: 600px;
+}
+
+#input-box-password-registration {
+    position: absolute;
+    top: 650px;
 }

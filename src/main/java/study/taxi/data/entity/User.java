@@ -2,9 +2,7 @@ package study.taxi.data.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.UUID;
 
 @Getter
@@ -19,6 +17,7 @@ public class User {
     @GeneratedValue
     UUID userId;
 
+    @Column(unique = true)
     String username;
 
     String lastname;

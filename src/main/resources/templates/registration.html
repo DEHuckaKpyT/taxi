@@ -2,10 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Регистрация</title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="../public/ico/favicon.ico" th:href="@{/ico/favicon.ico}"/>
+    <script src="../public/js/registration.js" th:src="@{js/registration.js}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.min.js"
+        type="text/javascript"></script>
+
+    <link rel="shortcut icon" type="image/x-icon" href="../public/ico/favicon.ico" th:href="@{/ico/favicon.ico}" />
     <link rel="stylesheet" type="text/css" href="../public/css/body.css" th:href="@{/css/body.css}">
     <link rel="stylesheet" type="text/css" href="../public/css/button.css" th:href="@{/css/button.css}">
     <link rel="stylesheet" type="text/css" href="../public/css/input-box.css" th:href="@{/css/input-box.css}">
@@ -15,7 +20,8 @@
 
 </head>
 
-<body>
+<body onload="onLoadBodyRegistration()" onsubmit="submitRegistrationForm(event)">
+<!-- <body onload="onLoadBodyRegistration()"> -->
     <img src="../public/images/taxi-phone.png" th:src="@{/images/taxi-phone.png}" id="image-taxi-phone" alt="Загрузка">
     <img src="../public/images/taxi-clock.png" th:src="@{/images/taxi-clock.png}" id="image-taxi-clock" alt="Загрузка">
     <img src="../public/images/taxi-badge.png" th:src="@{/images/taxi-badge.png}" id="image-taxi-badge" alt="Загрузка">
@@ -25,14 +31,18 @@
     <img src="../public/images/taxi-car.png" th:src="@{/images/taxi-car.png}" id="image-taxi-car">
     <form class="form" id="form-enter">
         <p class="text" id="text-enter">Регистрация</p>
-        <input class="input-box" id="input-box-lastname-registration" type="text" placeholder="Фамилия">
-        <input class="input-box" id="input-box-firstname-registration" type="text" placeholder="Имя">
-        <input class="input-box" id="input-box-password-registration" type="password" placeholder="Пароль">
-        <input class="input-box" id="input-box-email-registration" type="email" placeholder="Почта">
-        <input class="input-box" id="input-box-number-registration" type="text" placeholder="Номер">
-        <button class="button" id="button-login-registration" onclick="myFunction()">Зарегистрироваться</button>
+        <input class="input-box" id="input-box-lastname-registration" type="text" placeholder="Фамилия" name="lastname">
+        <input class="input-box" id="input-box-firstname-registration" type="text" placeholder="Имя" name="firstname">
+        <input class="input-box" id="input-box-number-registration" type="text" placeholder="Номер" name="number">
+        <input class="input-box" id="input-box-email-registration" type="email" placeholder="Почта" name="email">
+        <input class="input-box" id="input-box-login-registration" type="text" placeholder="Логин" name="login">
+        <input class="input-box" id="input-box-password-registration" type="password" placeholder="Пароль" minlength="8"
+            maxlength="24" name="password">
+        <!-- <button class="button" id="button-login-registration" onclick="createUser()" type="submit">Зарегистрироваться</button> -->
+        <button class="button" id="button-login-registration" type="submit">Зарегистрироваться</button>
     </form>
     <img src="../public/images/taxi-line.png" th:src="@{/images/taxi-line.png}" id="image-bottom" alt="Загрузка">
+
 
 </body>
 

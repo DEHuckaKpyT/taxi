@@ -2,9 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Вход</title>
-    <link rel="shortcut icon" type="image/x-icon" href="../public/ico/favicon.ico" th:href="@{/ico/favicon.ico}"/>
+    <link rel="shortcut icon" type="image/x-icon" href="../public/ico/favicon.ico" th:href="@{/ico/favicon.ico}" />
 
     <link rel="stylesheet" type="text/css" href="../public/css/body.css" th:href="@{/css/body.css}">
     <link rel="stylesheet" type="text/css" href="../public/css/button.css" th:href="@{/css/button.css}">
@@ -16,24 +16,27 @@
 </head>
 
 <body>
-<img src="../public/images/taxi-phone.png" th:src="@{/images/taxi-phone.png}" id="image-taxi-phone" alt="Загрузка">
-<img src="../public/images/taxi-clock.png" th:src="@{/images/taxi-clock.png}" id="image-taxi-clock" alt="Загрузка">
-<img src="../public/images/taxi-badge.png" th:src="@{/images/taxi-badge.png}" id="image-taxi-badge" alt="Загрузка">
-<img src="../public/images/taxi-plate.png" th:src="@{/images/taxi-plate.png}" id="image-taxi-plate" alt="Загрузка">
-<img src="../public/images/poni.png" th:src="@{/images/poni.png}" id="image-poni" alt="Загрузка">
-<img src="../public/images/taxi-line.png" th:src="@{/images/taxi-line.png}" id="image-top" alt="Загрузка">
-<img src="../public/images/taxi-car.png" th:src="@{/images/taxi-car.png}" id="image-taxi-car">
-<form class="form" id="form-enter" action="/login" method='POST'>
-    <p class="text" id="text-enter">Вход</p>
-    <div th:if="${param.error}" class="text" id="text-enter">
-        Неправильные имя и пароль.
-    </div>
-    <input class="input-box" id="input-box-lastname-login" type="text" placeholder="Логин" name='username'>
-    <input class="input-box" id="input-box-password-login" type="password" placeholder="Пароль" name='password'>
-    <button class="button" id="button-login"  name="submit" type="submit" value="submit">Войти</button>
-    <a class="text" id="text-registration" href="/registration">Зарегистрироваться</a>
-</form>
-<img src="../public/images/taxi-line.png" th:src="@{/images/taxi-line.png}" id="image-bottom" alt="Загрузка">
+    <img src="../public/images/taxi-phone.png" th:src="@{/images/taxi-phone.png}" id="image-taxi-phone" alt="Загрузка">
+    <img src="../public/images/taxi-clock.png" th:src="@{/images/taxi-clock.png}" id="image-taxi-clock" alt="Загрузка">
+    <img src="../public/images/taxi-badge.png" th:src="@{/images/taxi-badge.png}" id="image-taxi-badge" alt="Загрузка">
+    <img src="../public/images/taxi-plate.png" th:src="@{/images/taxi-plate.png}" id="image-taxi-plate" alt="Загрузка">
+    <img src="../public/images/poni.png" th:src="@{/images/poni.png}" id="image-poni" alt="Загрузка">
+    <img src="../public/images/taxi-line.png" th:src="@{/images/taxi-line.png}" id="image-top" alt="Загрузка">
+    <img src="../public/images/taxi-car.png" th:src="@{/images/taxi-car.png}" id="image-taxi-car">
+
+    <form class="form" id="form-enter" action="/login" method='POST'>
+        <p class="text" id="text-enter">Вход</p>
+        <div th:if="${param.error}" class="text" id="text-error-login-password">
+            Неправильные имя или пароль.
+        </div>
+        <input class="input-box" id="input-box-login-login" type="text" placeholder="Логин" name='username'>
+        <input class="input-box" id="input-box-password-login" type="password" placeholder="Пароль" name='password'>
+        <button class="button" id="button-login" name="submit" type="submit" value="submit">Войти</button>
+        <a class="text" id="text-registration" href="/registration">Зарегистрироваться</a>
+        <div class="block"></div>
+    </form>
+    
+    <img src="../public/images/taxi-line.png" th:src="@{/images/taxi-line.png}" id="image-bottom" alt="Загрузка">
 </body>
 
 </html>
