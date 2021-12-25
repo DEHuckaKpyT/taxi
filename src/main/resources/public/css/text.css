@@ -22,9 +22,46 @@
     font-size: 34px;
     top: 325px;
 }
-#text-error-login-password{
+
+#text-error-login-password {
     position: absolute;
     font-size: 14px;
     top: 400px;
-    color:crimson;
+    color: crimson;
+}
+
+#text-profile {
+    position: absolute;
+    font-size: 34px;
+    top: 325px;
+}
+
+#text-profile-lastname {
+    position: absolute;
+    font-size: 28px;
+    top: 375px;
+}
+
+#text-profile-firstname {
+    position: absolute;
+    font-size: 28px;
+    top: 425px;
+}
+
+#text-profile-phone {
+    position: absolute;
+    font-size: 28px;
+    top: 475px;
+}
+
+#text-profile-email {
+    position: absolute;
+    font-size: 28px;
+    top: 525px;
+}
+
+#text-profile-username {
+    position: absolute;
+    font-size: 28px;
+    top: 575px;
 }

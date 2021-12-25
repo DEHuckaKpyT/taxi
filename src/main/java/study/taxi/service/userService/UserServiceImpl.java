@@ -6,11 +6,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import study.taxi.api.argument.CreateUserArgument;
-import study.taxi.api.exception.UserHasEmptyFieldsException;
+import study.taxi.api.exception.CustomException;
 import study.taxi.data.entity.Authority;
 import study.taxi.data.entity.User;
 import study.taxi.data.repository.UserRepository;
 import study.taxi.service.authorityService.AuthorityService;
+
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -37,6 +39,7 @@ public class UserServiceImpl implements UserService {
                                        .build());
     }
 
+
     @Override
     @Transactional(readOnly = true)
     public User getUserByFirstnameLastname(String firstnameLastname) {
@@ -57,6 +60,8 @@ public class UserServiceImpl implements UserService {
             user.getEmail() == null || user.getEmail().isEmpty() ||
             user.getUsername() == null || user.getUsername().isEmpty() ||
             user.getPassword() == null || user.getPassword().isEmpty())
-            throw new UserHasEmptyFieldsException("Есть незаполненные данные");
+            throw new CustomException("Есть незаполненные данные");
+        if (userRepository.existsByUsername(user.getUsername()))
+            throw new CustomException("Логин уже используется");
     }
 }

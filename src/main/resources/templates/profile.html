@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Профиль</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../public/ico/favicon.ico" th:href="@{/ico/favicon.ico}"/>
+    <link rel="stylesheet" type="text/css" href="../public/css/image.css" th:href="@{/css/image.css}">
+    <link rel="stylesheet" type="text/css" href="../public/css/body.css" th:href="@{/css/body.css}">
+    <link rel="stylesheet" type="text/css" href="../public/css/form.css" th:href="@{/css/form.css}">
+    <link rel="stylesheet" type="text/css" href="../public/css/text.css" th:href="@{/css/text.css}">
+    <script src="../public/js/profile.js" th:src="@{js/profile.js}"></script>
+</head>
+<body onload="profileLoad()">
+<img src="../public/images/taxi-line.png" th:src="@{/images/taxi-line.png}" id="image-top" alt="Загрузка">
+
+    <div id="form-profile" class="form">
+        <p class="text" id="text-profile">Мой профиль</p>
+        <p class="text" id="text-profile-lastname">Фамилия</p>
+        <p class="text" id="text-profile-firstname">Имя</p>
+        <p class="text" id="text-profile-phone">Телефон</p>
+        <p class="text" id="text-profile-email">Почта</p>
+        <p class="text" id="text-profile-username">Логин</p>
+    </div>
+
+
+
+<img src="../public/images/taxi-line.png" th:src="@{/images/taxi-line.png}" id="image-bottom" alt="Загрузка">
+</body>
+</html>
