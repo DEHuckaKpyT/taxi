@@ -29,7 +29,7 @@
     <img src="../public/images/poni.png" th:src="@{/images/poni.png}" id="image-poni" alt="Загрузка">
     <img src="../public/images/taxi-line.png" th:src="@{/images/taxi-line.png}" id="image-top" alt="Загрузка">
     <img src="../public/images/taxi-car.png" th:src="@{/images/taxi-car.png}" id="image-taxi-car">
-    <form class="form" id="form-enter">
+    <div class="form" id="form-enter">
         <p class="text" id="text-enter">Регистрация</p>
         <input class="input-box" id="input-box-lastname-registration" type="text" placeholder="Фамилия" name="lastname">
         <input class="input-box" id="input-box-firstname-registration" type="text" placeholder="Имя" name="firstname">
@@ -39,8 +39,8 @@
         <input class="input-box" id="input-box-password-registration" type="password" placeholder="Пароль" minlength="8"
             maxlength="24" name="password">
         <!-- <button class="button" id="button-login-registration" onclick="createUser()" type="submit">Зарегистрироваться</button> -->
-        <button class="button" id="button-login-registration" type="submit">Зарегистрироваться</button>
-    </form>
+        <button class="button" id="button-login-registration" onclick="createUser()">Зарегистрироваться</button>
+    </div>
     <img src="../public/images/taxi-line.png" th:src="@{/images/taxi-line.png}" id="image-bottom" alt="Загрузка">
 
 

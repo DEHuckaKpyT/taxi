@@ -26,8 +26,8 @@ public class MyUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException("User not found");
         }
 
-        List<SimpleGrantedAuthority> authorities = List.of(new SimpleGrantedAuthority("user"));
+//        List<SimpleGrantedAuthority> authorities = ;
 
-        return new User(username, user.getPassword(), authorities);
+        return new User(username, user.getPassword(), user.getAuthorities());
     }
 }

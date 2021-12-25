@@ -33,9 +33,33 @@ function submitRegistrationForm(event) {
         });
     console.log(response);
 
-    window.open("/login","_self");
+    if (response == null) window.open("/login", "_self");
+    else alert(response);
 }
+
+function createUser() {
+    var response = postData("/user/create",
+        {
+            "lastname": document.getElementById('input-box-lastname-registration').value,
+            "firstname": document.getElementById('input-box-firstname-registration').value,
+            "number": document.getElementById('input-box-number-registration').value,
+            "email": document.getElementById('input-box-email-registration').value,
+            "username": document.getElementById('input-box-login-registration').value,
+            "password": document.getElementById('input-box-password-registration').value
+        })
+        .then((data) => {
+            console.log(data); // JSON data parsed by `response.json()` call
+        });
+    console.log(response);
+    window.open("/login", "_self");
+    // if (response == null) window.open("/login", "_self");
+    // else alert(response);
+}
+
+
+
 async function postData(url = '', data = {}) {
+
     // Default options are marked with *
     const response = await fetch(url, {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -50,5 +74,12 @@ async function postData(url = '', data = {}) {
         referrerPolicy: 'no-referrer', // no-referrer, *client
         body: JSON.stringify(data) // body data type must match "Content-Type" header
     });
+    if (response.ok) { // если HTTP-статус в диапазоне 200-299
+        // получаем тело ответа (см. про этот метод ниже)
+        return await response.json(); // parses JSON response into native JavaScript objects
+    } else {
+        alert("Ошибка HTTP: " + response.status);
+    }
+    alert(response);
     return await response.json(); // parses JSON response into native JavaScript objects
 }

@@ -16,10 +16,4 @@ public class HtmlController {
     public String page(@PathVariable String page){
         return page;
     }
-
-//    @GetMapping("reg")
-//    public String reg(HttpServletRequest request){
-//        request.login("");
-//    }
-
 }
