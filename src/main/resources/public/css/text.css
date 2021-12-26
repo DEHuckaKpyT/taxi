@@ -71,3 +71,36 @@
     font-size: 28px;
     top: 175px;
 }
+
+#text-distance {
+    position: relative;
+    left: -120px;
+    top: 0px;
+}
+
+#text-duration {
+    position: relative;
+    left: -120px;
+    top: -20px;
+}
+
+#text-order-comment{
+    position: relative;
+    top: -30px;
+    background-color: #ffd9e0;
+}
+
+#text-number-order {
+    position: relative;
+    top: -20px;
+    left: 234px;
+    background-color: #ffd9e0;
+}
+
+#text-order-tip{
+    position: relative;
+    left: 66px;
+    top: 12px;
+    background-color: #ffd9e0;
+
+}

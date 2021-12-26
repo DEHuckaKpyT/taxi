@@ -21,7 +21,4 @@ public class CarType {
     UUID typeId;
 
     String typeName;
-
-    @ManyToMany(mappedBy = "types")
-    Set<Order> orders;
 }

@@ -4,41 +4,76 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Заказ такси</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../public/ico/favicon.ico" th:href="@{/ico/favicon.ico}"/>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.min.js"
+            type="text/javascript"></script>
 
     <link rel="stylesheet" type="text/css" href="../public/css/image.css" th:href="@{/css/image.css}">
     <link rel="stylesheet" type="text/css" href="../public/css/body.css" th:href="@{/css/body.css}">
     <link rel="stylesheet" type="text/css" href="../public/css/form.css" th:href="@{/css/form.css}">
     <link rel="stylesheet" type="text/css" href="../public/css/text.css" th:href="@{/css/text.css}">
+    <link rel="stylesheet" type="text/css" href="../public/css/fieldset.css" th:href="@{/css/fieldset.css}">
+    <link rel="stylesheet" type="text/css" href="../public/css/select.css" th:href="@{/css/select.css}">
+    <link rel="stylesheet" type="text/css" href="../public/css/button.css" th:href="@{/css/button.css}">
+
+    <script src="../public/js/order.js" th:src="@{js/order.js}"></script>
     <!--
         Укажите свой API-ключ. Тестовый ключ НЕ БУДЕТ работать на других сайтах.
         Получить ключ можно в Кабинете разработчика: https://developer.tech.yandex.ru/keys/
     -->
     <link rel="stylesheet" type="text/css" href="../public/css/map.css" th:href="@{/css/map.css}">
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=89cb7696-4db1-48ec-8d70-1d85dffdcfac" type="text/javascript"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=key"
+            type="text/javascript"></script>
     <script src="../public/js/map.js" th:src="@{js/map.js}"></script>
+    <!--    <script src="https://yandex.st/jquery/2.2.3/jquery.min.js" type="text/javascript"></script>-->
 
 </head>
-<body>
+<body onload="onLoadBodyOrder()">
 <img src="../public/images/taxi-line.png" th:src="@{/images/taxi-line.png}" id="image-top" alt="Загрузка">
 
 <div id="form-create-order" class="form">
     <p class="text" id="text-create-order">Сделать заказ</p>
     <div id="form-order" class="form">
-        <div id="form-suggest1">
+        <div id="form-suggest">
             <input type="text" id="suggest1" class="sug"/>
-        </div>
-        <div id="form-suggest2">
             <input type="text" id="suggest" class="sug">
+            <button type="submit" id="button1">Проверить</button>
+            <div id="footer1">
+                <div id="message1"></div>
+            </div>
+            <button type="submit" id="button2">Проверить</button>
+            <div id="footer2">
+                <div id="message2"></div>
+            </div>
+            <p id="text-distance" class="text">Длина: ?</p>
+            <p id="text-duration" class="text">Время прохождения: ?</p>
+            <select name="select" id="select-order">
+                <option value="1">Эконом</option>
+                <option value="2" selected="selected">Стандарт</option>
+                <option value="3">Комфорт</option>
+            </select>
+            <input id="text-order-comment" type="text" size="40" placeholder="Комментарий">
+            <input class="input-box" id="text-number-order" type="text" placeholder="Номер" name="number">
+            <input id="text-order-tip" type="number" placeholder="Чаевые">
+            <button class="button" id="button-create-order" onclick="createOrder()">Заказать</button>
+            <fieldset id="fieldset-order">
+                <legend>
+                    <strong>Дополнительные опции</strong>
+                </legend>
+            </fieldset>
+
         </div>
     </div>
 
     <div id="form-map" class="form">
         <div id="map"></div>
-
     </div>
 </div>
 
 
 <img src="../public/images/taxi-line.png" th:src="@{/images/taxi-line.png}" id="image-bottom" alt="Загрузка">
 </body>
+
 </html>

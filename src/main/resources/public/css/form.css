@@ -19,7 +19,7 @@
     position: relative;
     width: 600px;
     height: 600px;
-    background-color: antiquewhite;
+    background-color: #ffa7b7;
 }
 
 #form-map {
@@ -30,14 +30,8 @@
     background-color: aquamarine;
 }
 
-#form-suggest1 {
+#form-suggest {
     position: relative;
     top: 0px;
     left: 50px;
-}
-
-#form-suggest2 {
-    position: relative;
-    top: 250px;
-    left: -50px;
 }

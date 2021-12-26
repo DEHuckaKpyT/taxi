@@ -26,3 +26,8 @@
     height: 56px;
     top: 700px;
 }
+
+#button-create-order{
+    position: relative;
+    top: 50px;
+}

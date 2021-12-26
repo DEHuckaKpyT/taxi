@@ -1,9 +1,12 @@
 var myMap;
-
+var multiRoute;
+var distance;
+var duration;
 // Дождёмся загрузки API и готовности DOM.
 ymaps.ready(init);
 
-function init () {
+function init() {
+
     // Создание экземпляра карты и его привязка к контейнеру с
     // заданным id ("map").
     myMap = new ymaps.Map('map', {
@@ -21,6 +24,9 @@ function init () {
     var suggestView2 = new ymaps.SuggestView('suggest'),
         placemark2;
 
+    let address1 = '';
+    let address2 = '';
+
     // При клике по кнопке запускаем верификацию введёных данных.
     $('#button1').bind('click', function (e) {
         geocode1();
@@ -30,6 +36,8 @@ function init () {
     });
 
     function geocode1() {
+        address1 = '';
+        myMap.geoObjects.remove(multiRoute);
         // Забираем запрос из поля ввода.
         var request = $('#suggest1').val();
         // Геокодируем введённые данные.
@@ -74,6 +82,7 @@ function init () {
         })
 
     }
+
     function showResult1(obj) {
         // Удаляем сообщение об ошибке, если найденный адрес совпадает с поисковым запросом.
         $('#suggest1').removeClass('input_error');
@@ -95,7 +104,9 @@ function init () {
         // Создаём карту.
         createMap1(mapState, shortAddress);
         // Выводим сообщение под картой.
+        address1 = address;
         showMessage1(address);
+        createRoute();
     }
 
     function showError1(message) {
@@ -113,19 +124,19 @@ function init () {
         // Если карта еще не была создана, то создадим ее и добавим метку с адресом.
         // if (!map) {
         //     map = new ymaps.Map('map', state);
-            placemark1 = new ymaps.Placemark(
-                myMap.getCenter(), {
-                    iconCaption: caption,
-                    balloonContent: caption
-                }, {
-                    preset: 'islands#redDotIconWithCaption'
-                });
-            myMap.geoObjects.add(placemark1);
+        placemark1 = new ymaps.Placemark(
+            myMap.getCenter(), {
+                iconCaption: caption,
+                balloonContent: caption
+            }, {
+                preset: 'islands#redDotIconWithCaption'
+            });
+        myMap.geoObjects.add(placemark1);
         //     // Если карта есть, то выставляем новый центр карты и меняем данные и позицию метки в соответствии с найденным адресом.
         // } else {
-            myMap.setCenter(state.center, state.zoom);
-            placemark1.geometry.setCoordinates(state.center);
-            placemark1.properties.set({iconCaption: caption, balloonContent: caption});
+        myMap.setCenter(state.center, state.zoom);
+        placemark1.geometry.setCoordinates(state.center);
+        placemark1.properties.set({iconCaption: caption, balloonContent: caption});
         // }
     }
 
@@ -135,6 +146,8 @@ function init () {
     }
 
     function geocode2() {
+        address2 = '';
+        myMap.geoObjects.remove(multiRoute);
         // Забираем запрос из поля ввода.
         var request = $('#suggest').val();
         // Геокодируем введённые данные.
@@ -179,6 +192,7 @@ function init () {
         })
 
     }
+
     function showResult2(obj) {
         // Удаляем сообщение об ошибке, если найденный адрес совпадает с поисковым запросом.
         $('#suggest').removeClass('input_error');
@@ -200,7 +214,9 @@ function init () {
         // Создаём карту.
         createMap2(mapState, shortAddress);
         // Выводим сообщение под картой.
+        address2 = address;
         showMessage2(address);
+        createRoute();
     }
 
     function showError2(message) {
@@ -237,5 +253,50 @@ function init () {
     function showMessage2(message) {
         // $('#messageHeader').text('Данные получены:');
         $('#message2').text(message);
+    }
+
+    function createRoute() {
+
+        if (address1 === '' || address2 === '') return;
+
+        myMap.geoObjects.remove(placemark1);
+        myMap.geoObjects.remove(placemark2);
+
+        // Построение маршрута.
+        // По умолчанию строится автомобильный маршрут.
+        multiRoute = new ymaps.multiRouter.MultiRoute({
+            // Точки маршрута. Точки могут быть заданы как координатами, так и адресом.
+            referencePoints: [
+                address1,
+                address2
+            ],
+            params: {
+                avoidTrafficJams: true
+            }
+        }, {
+            // Автоматически устанавливать границы карты так,
+            // чтобы маршрут был виден целиком.
+            boundsAutoApply: true
+        });
+
+// Добавление маршрута на карту.
+        myMap.geoObjects.add(multiRoute);
+
+        multiRoute.model.events.add('requestsuccess', function () {
+            // Получение ссылки на активный маршрут.
+            // В примере используется автомобильный маршрут,
+            // поэтому метод getActiveRoute() вернет объект multiRouter.driving.Route.
+            var activeRoute = multiRoute.getActiveRoute();
+            // Вывод информации о маршруте.
+            console.log("Длина: " + activeRoute.properties.get("distance").text);
+            console.log("Время прохождения: " + activeRoute.properties.get("duration").text);
+            distance = activeRoute.properties.get("distance").text;
+            duration = activeRoute.properties.get("duration").text;
+            document.getElementById("text-distance").innerText = "Длина: " + distance;
+            document.getElementById("text-duration").innerText = "Время прохождения: " + duration;
+
+        });
+        // Добавление маршрута на карту.
+        myMap.geoObjects.add(multiRoute);
     }
 }

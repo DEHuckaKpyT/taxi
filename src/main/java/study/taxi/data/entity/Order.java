@@ -42,11 +42,8 @@ public class Order {
     @ManyToOne
     Car usingCar;
 
-    @ManyToMany
-    @JoinTable(name = "order_car_type",
-            joinColumns = @JoinColumn(name = "order_id"),
-            inverseJoinColumns = @JoinColumn(name = "type_id"))
-    Set<CarType> types;
+    @ManyToOne
+    CarType type;
 
     @ManyToMany
     @JoinTable(name = "order_option",
