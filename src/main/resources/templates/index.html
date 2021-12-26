@@ -2,66 +2,43 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Заказ такси</title>
 
-    <!-- <link rel="stylesheet" href="my-css-file.css"> -->
-    <!-- <script src="my-js-file.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="../public/css/image.css" th:href="@{/css/image.css}">
+    <link rel="stylesheet" type="text/css" href="../public/css/body.css" th:href="@{/css/body.css}">
+    <link rel="stylesheet" type="text/css" href="../public/css/form.css" th:href="@{/css/form.css}">
+    <link rel="stylesheet" type="text/css" href="../public/css/text.css" th:href="@{/css/text.css}">
+    <!--
+        Укажите свой API-ключ. Тестовый ключ НЕ БУДЕТ работать на других сайтах.
+        Получить ключ можно в Кабинете разработчика: https://developer.tech.yandex.ru/keys/
+    -->
+    <link rel="stylesheet" type="text/css" href="../public/css/map.css" th:href="@{/css/map.css}">
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=89cb7696-4db1-48ec-8d70-1d85dffdcfac" type="text/javascript"></script>
+    <script src="../public/js/map.js" th:src="@{js/map.js}"></script>
+
 </head>
-
 <body>
-    <h1>Авторизация</h1>
-    <p id="qwe">Click the button to trigger a function that will output "Hello World" in a p element with id="demo".</p>
-    <input id="hah" type="text" disabled>
+<img src="../public/images/taxi-line.png" th:src="@{/images/taxi-line.png}" id="image-top" alt="Загрузка">
 
-    <input type="text">
+<div id="form-create-order" class="form">
+    <p class="text" id="text-create-order">Сделать заказ</p>
+    <div id="form-order" class="form">
+        <div id="form-suggest1">
+            <input type="text" id="suggest1" class="sug"/>
+        </div>
+        <div id="form-suggest2">
+            <input type="text" id="suggest" class="sug">
+        </div>
+    </div>
 
-    <button onclick="myFunction()">Click me</button>
+    <div id="form-map" class="form">
+        <div id="map"></div>
 
-    <p id="demo"></p>
+    </div>
+</div>
 
-    <script>
-        function myFunction() {
-            // document.getElementById("qwe").innerHTML = "Hello World";
-            document.getElementById("qwe").textContent = http2();
-        }
 
-        function httpGet() {
-            var xmlHttp = new XMLHttpRequest();
-            xmlHttp.open("POST", "http://127.0.0.1:5433/user/create", false); // false for synchronous request
-            xmlHttp.send(null);
-            return xmlHttp.responseText;
-        }
-
-        function haf() {
-            var HttpClient = function() {
-                this.get = function(aUrl, aCallback) {
-                    var anHttpRequest = new XMLHttpRequest();
-                    anHttpRequest.onreadystatechange = function() {
-                        if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
-                            aCallback(anHttpRequest.responseText);
-                    }
-
-                    anHttpRequest.open("GET", aUrl, true);
-                    anHttpRequest.send(null);
-                }
-            }
-        }
-
-        function http2() {
-            const request = new XMLHttpRequest();
-            request.open('POST', "http://127.0.0.1:5433/user/create",
-                false, "fn;ln", "pass")
-            request.onreadystatechange = function() {
-                // D some business logics here if you receive return
-                if (request.readyState === 4 && request.status === 200) {
-                    console.log(request.responseText);
-                }
-            }
-            request.send()
-            return request.responseText;
-        }
-    </script>
+<img src="../public/images/taxi-line.png" th:src="@{/images/taxi-line.png}" id="image-bottom" alt="Загрузка">
 </body>
-
 </html>

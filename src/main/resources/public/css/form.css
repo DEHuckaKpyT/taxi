@@ -3,7 +3,41 @@
     justify-content: center;
 }
 
-#form-profile{
+#form-profile {
     border-color: #0B5CF8;
     border-width: 5px;
+}
+
+#form-create-order{
+    position: relative;
+    top: 300px;
+    height: 300px;
+}
+
+#form-order {
+    top: 0px;
+    position: relative;
+    width: 600px;
+    height: 600px;
+    background-color: antiquewhite;
+}
+
+#form-map {
+    position: relative;
+    top: 0px;
+    height: 600px;
+    width: 600px;
+    background-color: aquamarine;
+}
+
+#form-suggest1 {
+    position: relative;
+    top: 50px;
+    right: 7%;
+}
+
+#form-suggest2 {
+    position: relative;
+    top: 50px;
+    left: 7%;
 }

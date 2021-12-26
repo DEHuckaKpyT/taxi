@@ -1,4 +1,4 @@
-.input-box{
+.input-box {
     background: #FBF3F3;
     border: 1px solid #000000;
     box-sizing: border-box;
@@ -6,7 +6,7 @@
     width: 348px;
     height: 43px;
     text-align: center;
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
@@ -42,7 +42,8 @@
     position: absolute;
     top: 550px;
 }
-#input-box-login-registration{
+
+#input-box-login-registration {
     position: absolute;
     top: 600px;
 }
@@ -50,4 +51,14 @@
 #input-box-password-registration {
     position: absolute;
     top: 650px;
+}
+
+#suggest {
+    position: absolute;
+    height: 100px;
+    width: 500px;
+    top: 300px;
+}
+
+.sug {
 }

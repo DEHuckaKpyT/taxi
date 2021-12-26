@@ -65,3 +65,9 @@
     font-size: 28px;
     top: 575px;
 }
+
+#text-create-order {
+    position: absolute;
+    font-size: 28px;
+    top: 175px;
+}
