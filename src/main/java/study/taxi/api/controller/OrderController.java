@@ -1,13 +1,16 @@
 package study.taxi.api.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.*;
+import study.taxi.api.dto.CreateOrderDto;
 import study.taxi.api.dto.OrderDto;
+import study.taxi.api.dto.PriceDto;
 import study.taxi.api.mapper.OrderMapper;
+import study.taxi.data.entity.Order;
 import study.taxi.service.orderService.OrderService;
+import study.taxi.service.userService.UserService;
 
 import java.util.List;
 
@@ -17,6 +20,7 @@ import java.util.List;
 public class OrderController {
 
     private final OrderService orderService;
+    private final UserService userService;
 
     @GetMapping("list")
     List<OrderDto> getAll() {
@@ -24,6 +28,17 @@ public class OrderController {
     }
 
     @PostMapping("create")
-    void create() {
+    OrderDto create(@RequestBody CreateOrderDto createOrderDto, Authentication authentication) {
+        if (authentication != null){
+            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+            createOrderDto.setUser(userService.getUserByUsername(userDetails.getUsername()));
+        }
+
+        return OrderMapper.INSTANCE.toOrderDto(orderService.create(createOrderDto));
+    }
+
+    @PostMapping("getprice")
+    PriceDto getPrice(@RequestBody CreateOrderDto createOrderDto){
+        return new PriceDto(orderService.getPrice(createOrderDto));
     }
 }

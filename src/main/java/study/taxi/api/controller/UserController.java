@@ -17,10 +17,10 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("create")
-    public void create(@RequestBody CreateUserDto createUserDto, Authentication authentication) {
+    public User create(@RequestBody CreateUserDto createUserDto, Authentication authentication) {
 //        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 
-        userService.create(UserMapper.INSTANCE.toCreateUserArgument(createUserDto));
+        return userService.create(UserMapper.INSTANCE.toCreateUserArgument(createUserDto));
     }
 
     @GetMapping("get")

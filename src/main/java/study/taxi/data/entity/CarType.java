@@ -21,4 +21,6 @@ public class CarType {
     UUID typeId;
 
     String typeName;
+
+    double coefficient;
 }

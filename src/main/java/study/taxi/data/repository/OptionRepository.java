@@ -8,4 +8,6 @@ import java.util.UUID;
 
 @Repository
 public interface OptionRepository  extends JpaRepository<Option, UUID> {
+
+    Option findByOptionName(String optionName);
 }

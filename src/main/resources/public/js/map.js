@@ -37,6 +37,7 @@ function init() {
 
     function geocode1() {
         address1 = '';
+        distance='';
         myMap.geoObjects.remove(multiRoute);
         // Забираем запрос из поля ввода.
         var request = $('#suggest1').val();
@@ -147,6 +148,7 @@ function init() {
 
     function geocode2() {
         address2 = '';
+        distance='';
         myMap.geoObjects.remove(multiRoute);
         // Забираем запрос из поля ввода.
         var request = $('#suggest').val();
@@ -295,6 +297,7 @@ function init() {
             document.getElementById("text-distance").innerText = "Длина: " + distance;
             document.getElementById("text-duration").innerText = "Время прохождения: " + duration;
 
+            getPrice();
         });
         // Добавление маршрута на карту.
         myMap.geoObjects.add(multiRoute);

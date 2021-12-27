@@ -22,6 +22,8 @@ public class Option {
 
     String optionName;
 
+    int additionalPrice;
+
     @ManyToMany(mappedBy = "options")
     Set<Order> orders;
 }

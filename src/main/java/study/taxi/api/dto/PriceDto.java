@@ -2,15 +2,12 @@ package study.taxi.api.dto;
 
 import lombok.*;
 
-import java.util.UUID;
-
 @Getter
 @Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class OptionDto {
+public class PriceDto {
 
-    String optionName;
-    boolean value;
+    int price;
 }

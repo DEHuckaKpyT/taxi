@@ -4,6 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import study.taxi.api.dto.OptionDto;
+import study.taxi.api.mapper.OptionMapper;
+import study.taxi.api.mapper.OrderMapper;
 import study.taxi.data.entity.Option;
 import study.taxi.data.repository.OptionRepository;
 
@@ -19,7 +22,7 @@ public class OptionController {
 
     @GetMapping("list")
     @Transactional
-    List<Option> getAll() {
-        return optionRepository.findAll();
+    List<OptionDto> getAll() {
+        return OptionMapper.INSTANCE.toOptionDto(optionRepository.findAll());
     }
 }
