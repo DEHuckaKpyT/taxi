@@ -50,19 +50,19 @@ public class OrderServiceImpl implements OrderService {
 
         for (Order order : orderRepository.findAllByUserUserId(userId)) {
             orders.add(OrderProjection.builder()
-                    .id(order.getOrderId())
-                    .createDateTime(order.getCreateDateTime().format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm")))
-                    .price(String.valueOf(order.getPrice()))
-                    .type(order.getType().getTypeName())
-                    .comment(order.getComment())
-                    .build());
+                                      .id(order.getOrderId())
+                                      .createDateTime(order.getCreateDateTime().format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm")))
+                                      .price(String.valueOf(order.getPrice()))
+                                      .type(order.getType().getTypeName())
+                                      .comment(order.getComment())
+                                      .build());
         }
 
         return orders;
     }
 
     @Override
-    public Order get(UUID orderId){
+    public Order get(UUID orderId) {
         return orderRepository.getById(orderId);
     }
 
@@ -105,6 +105,7 @@ public class OrderServiceImpl implements OrderService {
                     .points(createOrderDto.getAddressFrom() + "; " + createOrderDto.getAddressTo())
                     .price(getPrice(createOrderDto))
                     .comment(createOrderDto.getComment())
+                    .user(createOrderDto.getUser())
 //                    .tip(createOrderDto.getTip())
                     .otherNumber(createOrderDto.getOtherNumber())
                     .type(typeService.getType(createOrderDto.getType()))

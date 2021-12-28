@@ -33,6 +33,9 @@ public class OrderController {
 
     @PostMapping("create")
     OrderDto create(@RequestBody CreateOrderDto createOrderDto, Authentication authentication) {
+
+        int i = 0;
+        i++;
         if (authentication != null){
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
             createOrderDto.setUser(userService.getUserByUsername(userDetails.getUsername()));

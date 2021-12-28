@@ -17,6 +17,9 @@
     <link rel="stylesheet" type="text/css" href="../public/css/fieldset.css" th:href="@{/css/fieldset.css}">
     <link rel="stylesheet" type="text/css" href="../public/css/select.css" th:href="@{/css/select.css}">
     <link rel="stylesheet" type="text/css" href="../public/css/button.css" th:href="@{/css/button.css}">
+    <link rel="stylesheet" type="text/css" href="../public/css/input-box.css" th:href="@{/css/input-box.css}">
+    <link rel="stylesheet" type="text/css" href="../public/css/image.css" th:href="@{/css/image.css}">
+    
 
     <script src="../public/js/order.js" th:src="@{js/order.js}"></script>
     <!--
@@ -32,13 +35,17 @@
 </head>
 <body onload="onLoadBodyOrder()">
 <img src="../public/images/taxi-line.png" th:src="@{/images/taxi-line.png}" id="image-top" alt="Загрузка">
-
+    <img src="../public/images/taxi-clock.png" th:src="@{/images/taxi-clock.png}" id="pic-clock" alt="Загрузка">
+    <img src="../public/images/taxi-badge.png" th:src="@{/images/taxi-badge.png}" id="image-taxi-badge" alt="Загрузка">
+    <img src="../public/images/taxi-plate.png" th:src="@{/images/taxi-plate.png}" id="pic-taxi" alt="Загрузка">
+    <img src="../public/images/poni.png" th:src="@{/images/poni.png}" id="image-poni" alt="Загрузка">
+    <img src="../public/images/taxi-car.png" th:src="@{/images/taxi-car.png}" id="image-taxi-car">
 <div id="form-create-order" class="form">
     <p class="text" id="text-create-order">Сделать заказ</p>
     <div id="form-order" class="form">
         <div id="form-suggest">
-            <input type="text" id="suggest1" class="sug"/>
-            <input type="text" id="suggest" class="sug">
+            <input type="text" id="suggest1" class="input-box"/>
+            <input type="text" id="suggest" class="input-box">
             <button type="submit" id="button1">Проверить</button>
             <div id="footer1">
                 <div id="message1"></div>
@@ -49,14 +56,13 @@
             </div>
             <p id="text-distance" class="text">Длина: ?</p>
             <p id="text-duration" class="text">Время прохождения: ?</p>
-            <select name="select" id="select-order">
-                <option value="1">Эконом</option>
-                <option value="2" selected="selected">Стандарт</option>
-                <option value="3">Комфорт</option>
+            <select class="input-box" name="select" id="select-order">
+                <option class="input-box" value="1">Эконом</option>
+                <option class="input-box" value="2" selected="selected">Стандарт</option>
+                <option class="input-box" value="3">Комфорт</option>
             </select>
-            <input id="text-order-comment" type="text" size="40" placeholder="Комментарий">
+            <input class="input-box" id="text-order-comment" type="text" size="40" placeholder="Комментарий">
             <input class="input-box" id="text-number-order" type="text" placeholder="Другой номер" name="number">
-<!--            <input id="text-order-tip" type="number" placeholder="Чаевые" >-->
             <button class="button" id="button-create-order" onclick="createOrder()">Заказать</button>
             <p id="text-totalcost" class="text">Стоимость: ?</p>
             <fieldset id="fieldset-order">
@@ -72,7 +78,6 @@
         <div id="map"></div>
     </div>
 </div>
-
 
 <img src="../public/images/taxi-line.png" th:src="@{/images/taxi-line.png}" id="image-bottom" alt="Загрузка">
 </body>
