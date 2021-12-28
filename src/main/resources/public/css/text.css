@@ -74,26 +74,28 @@
 
 #text-distance {
     position: relative;
-    left: -120px;
-    top: 0px;
+    left: -290px;
+    top: -20px;
 }
 
 #text-duration {
     position: relative;
-    left: -120px;
-    top: -20px;
+    left: -220px;
+    top: -40px;
 }
 
 #text-order-comment{
     position: relative;
-    top: -30px;
+    top: -50px;
     background-color: #ffd9e0;
+    width: 335px;
 }
 
 #text-number-order {
     position: relative;
-    top: -20px;
-    left: 234px;
+    top: -45px;
+    left: 200px;
+    width: 335px;
     background-color: #ffd9e0;
 }
 
@@ -107,5 +109,5 @@
 #text-totalcost{
     position: relative;
     top: 0px;
-    left: 40px;
+    left: -270px;
 }

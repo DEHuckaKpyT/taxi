@@ -72,3 +72,11 @@ img {
     margin-right: auto;
     width: 7%;
 }
+
+#pic-clock {
+    left: -175px;
+}
+
+#pic-taxi {
+    left: 1188px; 
+}

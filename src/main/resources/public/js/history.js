@@ -131,6 +131,6 @@ function buttonClose(){
 
     var myTable = document.getElementById("table-history");
     myTable.style.display = "block";
-    
+
 }
 

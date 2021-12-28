@@ -11,11 +11,13 @@
 
 #footer1 {
     position: relative;
-    top: 0px;
-    width: 350px;
+    top: -50px;
+    width: 450px;
     height: 70px;
     background-color: #ffd9e0;
     padding: 12px;
+    border-radius: 10px;
+    left: -35px;
 }
 
 #message1 {
@@ -32,21 +34,22 @@
 
 #button1 {
     position: relative;
-    top: 65px;
-    right: 100px;
+    top: 15px;
+    right: -450px;
     display: inline-block;
-    font-size: 11px;
-    color: rgb(68, 68, 68);
+    font-size: 14px;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     user-select: none;
     padding: .2em 0.6em;
     outline: none;
     border: 1px solid rgba(0, 0, 0, .1);
     border-radius: 2px;
-    background: rgb(245, 245, 245) linear-gradient(#f4f4f4, #f1f1f1);
+    background: rgb(0, 0, 0) linear-gradient(#FFFFFF, #FFFFFF);
     transition: all .218s ease 0s;
     height: 28px;
-    width: 74px;
+    width: 85px;
+    border-radius: 10px;
 }
 
 #button1:hover {
@@ -102,11 +105,13 @@
 
 #footer2 {
     position: relative;
-    top: 15px;
-    width: 350px;
+    top: -7px;
+    width: 450px;
     height: 70px;
     background-color: #ffd9e0;
     padding: 12px;
+    border-radius: 10px;
+    left: -35px;
 }
 
 #message2 {
@@ -123,21 +128,22 @@
 
 #button2 {
     position: relative;
-    top: 75px;
-    right: -415px;
+    top: 55px;
+    right: -450px;
     display: inline-block;
-    font-size: 11px;
-    color: rgb(68, 68, 68);
+    font-size: 14px;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     user-select: none;
     padding: .2em 0.6em;
     outline: none;
     border: 1px solid rgba(0, 0, 0, .1);
     border-radius: 2px;
-    background: rgb(245, 245, 245) linear-gradient(#f4f4f4, #f1f1f1);
+    background: rgb(0, 0, 0) linear-gradient(#FFFFFF, #FFFFFF);
     transition: all .218s ease 0s;
     height: 28px;
-    width: 74px;
+    width: 85px;
+    border-radius: 10px;
 }
 
 #button2:hover {
@@ -148,7 +154,7 @@
     box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
 }
 
-#button2:active {
+#button2:active { 
     position: relative;
     color: rgb(51, 51, 51);
     border: 1px solid rgb(204, 204, 204);
@@ -158,12 +164,14 @@
 
 #suggest1 {
     position: relative;
-    top: 20px;
-    width: 500px;
+    top: 10px;
+    width: 575px;
+    border-radius: 10px;
+    font-size: 18px;
 }
 
 #suggest {
     position: relative;
     top: 130px;
-    width: 500px;
+    width: 575px;
 }
