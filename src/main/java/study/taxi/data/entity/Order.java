@@ -29,8 +29,6 @@ public class Order {
 
     String comment;
 
-    int tip;
-
     String otherNumber;
 
     @ManyToOne

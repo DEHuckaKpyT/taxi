@@ -1,23 +1,22 @@
 package study.taxi.service.orderService;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import study.taxi.api.dto.CreateOrderDto;
+import study.taxi.api.dto.OrderDto;
+import study.taxi.api.dto.OrderProjection;
 import study.taxi.api.exception.CustomException;
 import study.taxi.data.entity.Option;
-import study.taxi.data.entity.User;
 import study.taxi.data.repository.OrderRepository;
 import study.taxi.data.entity.Order;
 import study.taxi.service.OptionService;
 import study.taxi.service.TypeService;
 
+import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -43,6 +42,28 @@ public class OrderServiceImpl implements OrderService {
         Order order = getOrder(createOrderDto);
 
         return orderRepository.save(order);
+    }
+
+    @Override
+    public List<OrderProjection> getHistoryByUserId(UUID userId) throws FileNotFoundException {
+        List<OrderProjection> orders = new ArrayList<>();
+
+        for (Order order : orderRepository.findAllByUserUserId(userId)) {
+            orders.add(OrderProjection.builder()
+                    .id(order.getOrderId())
+                    .createDateTime(order.getCreateDateTime().format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm")))
+                    .price(String.valueOf(order.getPrice()))
+                    .type(order.getType().getTypeName())
+                    .comment(order.getComment())
+                    .build());
+        }
+
+        return orders;
+    }
+
+    @Override
+    public Order get(UUID orderId){
+        return orderRepository.getById(orderId);
     }
 
     @Override
@@ -84,7 +105,7 @@ public class OrderServiceImpl implements OrderService {
                     .points(createOrderDto.getAddressFrom() + "; " + createOrderDto.getAddressTo())
                     .price(getPrice(createOrderDto))
                     .comment(createOrderDto.getComment())
-                    .tip(createOrderDto.getTip())
+//                    .tip(createOrderDto.getTip())
                     .otherNumber(createOrderDto.getOtherNumber())
                     .type(typeService.getType(createOrderDto.getType()))
                     .options(options)
@@ -97,7 +118,7 @@ public class OrderServiceImpl implements OrderService {
         if (distance.charAt(distance.length() - 2) == 'к') {
             char c = distance.charAt(distance.length() - 3);
             String dist = distance.replace(c, '!');
-            dist = dist.replace("!", "").replace(",",".");
+            dist = dist.replace("!", "").replace(",", ".");
             dist = dist.substring(0, dist.length() - 2);
             return Double.parseDouble(dist);
         } else {

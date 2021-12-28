@@ -35,3 +35,16 @@
     top: 0px;
     left: 50px;
 }
+
+#form-history {
+    position: relative;
+    top: 100px;
+    /*left: 50px;*/
+}
+
+#div-history-order{
+    height: 500px;
+    width: 500px;
+    top: 200px;
+    background-color: #fdb0bd;
+}

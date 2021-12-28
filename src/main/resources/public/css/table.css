@@ -1,0 +1,26 @@
+#table-history {
+    border-width: 10px;
+    border-color: black;
+    background-color: #fdced4;
+    solid-color: #0B5CF8;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+#table-caption{
+    font-size: 20px;
+}
+
+th {
+    border: 2px solid #d5b92a;
+    background-color: #ff6488;
+}
+
+td{
+    cursor: pointer;
+    border: 1px solid #ffffbd;
+}
+
+tr:hover{
+    background-color: #ff6488;
+}

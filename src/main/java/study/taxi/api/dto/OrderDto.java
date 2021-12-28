@@ -19,11 +19,9 @@ public class OrderDto {
     String points;
     int price;
     String comment;
-    int tip;
     String otherNumber;
     DriverDto driver;
-    User user;
     CarDto usingCar;
-    Set<CarTypeDto> types;
+    CarTypeDto type;
     Set<OptionDto> options;
 }
