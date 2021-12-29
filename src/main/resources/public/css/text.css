@@ -112,3 +112,31 @@
     top: -60px;
     left: -10px;
 }
+
+#text-index-logout{
+    position: absolute;
+    right: 30px;
+    top: 10px;
+}
+#text-index-login{
+    position: absolute;
+    right: 30px;
+    top: 10px;
+}
+
+#text-index-history{
+    position: absolute;
+    right: 120px;
+    top: 10px;
+}
+
+#text-index-profile{
+    position: absolute;
+    right: 230px;
+    top: 10px;
+}
+#text-index-create-order{
+    position: absolute;
+    left: 30px;
+    top: 10px;
+}

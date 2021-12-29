@@ -29,10 +29,11 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
 //                .authorizeRequests().anyRequest().permitAll().and()
             .authorizeRequests().antMatchers("/js/**", "/css/**", "/images/**", "/favicon.ico").permitAll().and()
             .authorizeRequests().antMatchers("/login", "/index", "/registration", "/user/create", "/option/list",
-                                             "/order/create", "/order/getprice").permitAll().and()
+                                             "/order/create", "/order/getprice", "/user/auth").permitAll().and()
             .authorizeRequests().anyRequest().authenticated().and()
             .httpBasic().authenticationEntryPoint(authenticationEntryPoint).and()
             .formLogin().loginPage("/login").failureUrl("/login?error").defaultSuccessUrl("/index", true).and()
+            .logout().logoutUrl("/logout").logoutSuccessUrl("/login").and()
             .httpBasic().and()
             .exceptionHandling().and()
             .sessionManagement().disable();

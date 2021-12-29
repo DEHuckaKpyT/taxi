@@ -1,4 +1,4 @@
-function onLoadBodyRegistration() {
+async function onLoadBodyRegistration() {
     $.fn.setCursorPosition = function (pos) {
         if ($(this).get(0).setSelectionRange) {
             $(this).get(0).setSelectionRange(pos, pos);
@@ -15,29 +15,46 @@ function onLoadBodyRegistration() {
         $(this).setCursorPosition(4);
     }).mask("+7 (999) 999-99-99");
     // }).mask("8(999) 999-9999",{autoclear: false});
+
+    var response = await fetch("http://localhost:5433/user/auth");
+    data = await response.json();
+
+    var newA;
+    newA = document.createElement("a");
+    newA.id = "text-index-create-order";
+    newA.class = "text";
+    newA.href = "/index";
+    newA.innerText = "Заказать";
+    document.body.appendChild(newA);
+
+    if (data.flag) {
+        newA = document.createElement("a");
+        newA.id = "text-index-logout";
+        newA.class = "text";
+        newA.href = "/logout";
+        newA.innerText = "Выйти";
+        document.body.appendChild(newA);
+        newA = document.createElement("a");
+        newA.id = "text-index-history";
+        newA.class = "text";
+        newA.href = "/history";
+        newA.innerText = "История";
+        document.body.appendChild(newA);
+        newA = document.createElement("a");
+        newA.id = "text-index-profile";
+        newA.class = "text";
+        newA.href = "/profile";
+        newA.innerText = "Профиль";
+        document.body.appendChild(newA);
+    } else {
+        newA = document.createElement("a");
+        newA.id = "text-index-login";
+        newA.class = "text";
+        newA.href = "/<c:url value=\"/logout\" />";
+        newA.innerText = "Войти";
+        document.body.appendChild(newA);
+    }
 }
-
-// function submitRegistrationForm(event) {
-//     event.preventDefault();
-//
-//     const response = postData("/user/create",
-//         {
-//             "lastname": event.target['input-box-lastname-registration'].value,
-//             "firstname": event.target['input-box-firstname-registration'].value,
-//             "number": event.target['input-box-number-registration'].value,
-//             "email": event.target['input-box-email-registration'].value,
-//             "username": event.target['input-box-login-registration'].value,
-//             "password": event.target['input-box-password-registration'].value
-//         })
-//         .then((data) => {
-//             console.log(data); // JSON data parsed by `response.json()` call
-//         });
-//     console.log(response);
-//
-//     if (response == null) window.open("/login", "_self");
-//     else alert(response);
-// }
-
 async function createUser() {
 
     let url = "http://localhost:5433/user/create";
