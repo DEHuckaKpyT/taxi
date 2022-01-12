@@ -27,7 +27,6 @@ LocalDateTime createDateTime
 String points
 int price
 String comment
-int tip
 String otherNumber
 Employee employee
 User user

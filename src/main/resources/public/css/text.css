@@ -115,28 +115,38 @@
 
 #text-index-logout{
     position: absolute;
+    font-size: 24px;
+    background-color: #fffb2069;
     right: 30px;
     top: 10px;
 }
 #text-index-login{
     position: absolute;
+    font-size: 24px;
+    background-color: #fffb2069;
     right: 30px;
     top: 10px;
 }
 
 #text-index-history{
     position: absolute;
+    font-size: 24px;
+    background-color: #fffb2069;
     right: 120px;
     top: 10px;
 }
 
 #text-index-profile{
     position: absolute;
+    font-size: 24px;
+    background-color: #fffb2069;
     right: 230px;
     top: 10px;
 }
 #text-index-create-order{
     position: absolute;
+    font-size: 24px;
+    background-color: #fffb2069;
     left: 30px;
     top: 10px;
 }
