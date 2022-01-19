@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import study.taxi.api.dto.CreateOrderDto;
+import study.taxi.api.dto.OptionDto;
 import study.taxi.api.dto.OrderDto;
 import study.taxi.api.dto.OrderProjection;
 import study.taxi.api.exception.CustomException;
@@ -70,7 +71,7 @@ public class OrderServiceImpl implements OrderService {
     public int getPrice(CreateOrderDto createOrderDto) {
         double totalCost = 0;
         Set<Option> options = new HashSet<>();
-        for (var opt : createOrderDto.getOptions()) {
+        for (OptionDto opt : createOrderDto.getOptions()) {
             if (opt.isValue()) options.add(optionService.getOption(opt.getOptionName()));
         }
         if (Objects.equals(createOrderDto.getDistance(), "") || createOrderDto.getDistance() == null)
@@ -96,7 +97,7 @@ public class OrderServiceImpl implements OrderService {
 
     Order getOrder(CreateOrderDto createOrderDto) {
         Set<Option> options = new HashSet<>();
-        for (var opt : createOrderDto.getOptions()) {
+        for (OptionDto opt : createOrderDto.getOptions()) {
             if (opt.isValue()) options.add(optionService.getOption(opt.getOptionName()));
         }
 
