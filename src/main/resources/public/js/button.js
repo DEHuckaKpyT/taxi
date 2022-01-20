@@ -1,6 +1,6 @@
 function myFunction() {
 
- fetch("http://localhost:5433/login", {
+ fetch("/login", {
         credentials: 'include',
         method: 'POST',
         headers: {
@@ -18,7 +18,7 @@ function myFunction() {
 
 async function onLoadLogin(){
 
-    response = await fetch("http://localhost:5433/user/auth");
+    response = await fetch("/user/auth");
     data = await response.json();
 
     var newA;

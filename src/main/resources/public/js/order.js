@@ -19,7 +19,7 @@ async function onLoadBodyOrder() {
     }).mask("+7 (999) 999-99-99");
     // }).mask("8(999) 999-9999",{autoclear: false});
 
-    var response = await fetch("http://localhost:5433/user/auth");
+    var response = await fetch("/user/auth");
     data = await response.json();
 
     var newA;
@@ -59,7 +59,7 @@ async function onLoadBodyOrder() {
     }
 
 
-    var response = await fetch("http://localhost:5433/option/list");
+    var response = await fetch("/option/list");
     data = await response.json();
 
     var newElem = document.createElement("p");

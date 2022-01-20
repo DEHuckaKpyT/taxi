@@ -1,6 +1,6 @@
 async function onLoadBodyHistory() {
 
-    var response = await fetch("http://localhost:5433/user/auth");
+    var response = await fetch("/user/auth");
     data = await response.json();
 
     var newA;
@@ -68,7 +68,7 @@ async function onLoadBodyHistory() {
     myTable.appendChild(newTr);
 
 
-    var response = await fetch("http://localhost:5433/order/history");
+    var response = await fetch("/order/history");
     data = await response.json();
 
 
@@ -107,7 +107,7 @@ async function openOrderById(orderId) {
     newDiv.id = "div-history-order";
 
 
-    var response = await fetch("http://localhost:5433/order/" + orderId);
+    var response = await fetch("/order/" + orderId);
     data = await response.json();
 
     var newP;

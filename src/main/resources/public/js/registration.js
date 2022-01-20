@@ -16,7 +16,7 @@ async function onLoadBodyRegistration() {
     }).mask("+7 (999) 999-99-99");
     // }).mask("8(999) 999-9999",{autoclear: false});
 
-    var response = await fetch("http://localhost:5433/user/auth");
+    var response = await fetch("/user/auth");
     data = await response.json();
 
     var newA;
@@ -57,7 +57,7 @@ async function onLoadBodyRegistration() {
 }
 async function createUser() {
 
-    let url = "http://localhost:5433/user/create";
+    let url = "/user/create";
     let requestData = {
         "lastname": document.getElementById('input-box-lastname-registration').value,
         "firstname": document.getElementById('input-box-firstname-registration').value,
