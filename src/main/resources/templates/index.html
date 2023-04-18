@@ -23,6 +23,7 @@
 
 
     <script src="../public/js/order.js" th:src="@{js/order.js}"></script>
+    <script src="../public/js/general.js" th:src="@{js/general.js}"></script>
     <!--
         Укажите свой API-ключ. Тестовый ключ НЕ БУДЕТ работать на других сайтах.
         Получить ключ можно в Кабинете разработчика: https://developer.tech.yandex.ru/keys/
@@ -41,6 +42,7 @@
 <!--<img src="../public/images/taxi-plate.png" th:src="@{/images/taxi-plate.png}" id="pic-taxi" alt="Загрузка">-->
 <img src="../public/images/poni.png" th:src="@{/images/poni.png}" id="image-poni" alt="Загрузка">
 <img src="../public/images/taxi-car.png" th:src="@{/images/taxi-car.png}" id="image-taxi-car">
+<button id="button-client" onclick="onClickButtonClient()">my button</button>
 <div id="form-create-order" class="form">
     <p class="text" id="text-create-order">Сделать заказ</p>
     <div id="form-order" class="form">
